@@ -16,6 +16,9 @@ class CreateCarriagesTable extends Migration
         Schema::create('carriages', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('train_id');
+            $table->integer('price_reserved_seat');
+            $table->integer('price_compartment');
+            $table->integer('price_sv');
             $table->timestamps();
         });
     }
