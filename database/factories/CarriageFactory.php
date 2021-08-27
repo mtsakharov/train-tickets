@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Carriage;
+use App\Models\Train;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CarriageFactory extends Factory
@@ -22,7 +23,8 @@ class CarriageFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'number' => $this->faker->numberBetween(1,50),
+            'train_id' => Train::all()->random()->id
         ];
     }
 }

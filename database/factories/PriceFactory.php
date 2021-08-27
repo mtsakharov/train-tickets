@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Carriage;
 use App\Models\Price;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -22,7 +23,9 @@ class PriceFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'price' => $this->faker->numberBetween(1, 200),
+            'carriage_id' => Carriage::all()->random()->id,
+            'type' => 'cv'
         ];
     }
 }

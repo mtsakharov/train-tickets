@@ -15,7 +15,12 @@ class CreateStationsTable extends Migration
     {
         Schema::create('stations', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->unsignedBigInteger('city_id');
             $table->timestamps();
+            $table->foreign('city_id')
+                ->references('id')->on('cities')
+                ->onDelete('cascade');
         });
     }
 

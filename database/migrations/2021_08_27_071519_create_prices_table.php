@@ -15,7 +15,13 @@ class CreatePricesTable extends Migration
     {
         Schema::create('prices', function (Blueprint $table) {
             $table->id();
+            $table->integer('price');
+            $table->unsignedBigInteger('carriage_id');
+            $table->enum('type', ['cv', 'coupe', 'platscarte'])->default('cv');
             $table->timestamps();
+            $table->foreign('carriage_id')
+                ->references('id')->on('carriages')
+                ->onDelete('cascade');
         });
     }
 

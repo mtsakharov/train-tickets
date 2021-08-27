@@ -15,11 +15,12 @@ class CreateCarriagesTable extends Migration
     {
         Schema::create('carriages', function (Blueprint $table) {
             $table->id();
+            $table->integer('number');
             $table->unsignedBigInteger('train_id');
-            $table->integer('price_reserved_seat');
-            $table->integer('price_compartment');
-            $table->integer('price_sv');
             $table->timestamps();
+            $table->foreign('train_id')
+                ->references('id')->on('trains')
+                ->onDelete('cascade');
         });
     }
 

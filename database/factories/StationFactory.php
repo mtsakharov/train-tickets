@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\City;
 use App\Models\Station;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -22,7 +23,8 @@ class StationFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->name,
+            'city_id' => City::all()->random()->id
         ];
     }
 }
